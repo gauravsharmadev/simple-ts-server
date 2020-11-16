@@ -63,11 +63,11 @@ export const WriteNamesUtility = async (
 	const words = content.split(' ').sort();
 	// let inset = 0;
 	for (const name of names.sort()) {
-		const found = words.find(x => x.match(new RegExp(`^${name}(,|:|)$`, 'g')));
+		const found = words.find(x => x.match(new RegExp(`^('|"| |)*${name}(,|:|\\.|!|;|\\?|'| |)*$`, 'g')));
 		if (found) {
 			let count = 0;
 			for(const word of words) {
-				if (word.match(new RegExp(new RegExp(`^${name}(,|:|)$`, 'g')))) {
+				if (word.match(new RegExp(new RegExp(`^('|"| |)*${name}(,|:|\\.|!|;|\\?|'| |)*$`, 'g')))) {
 					count += 1;
 				}
 			}
